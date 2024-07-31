@@ -1,12 +1,17 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
 import { getUsers } from '../../actions/userActions'
 
 const Dropdown = ({title,onlyIcon,values}) => {
     const dispatch=useDispatch()
     function handleClick(e){
-        const filterQuery=`/filter/?key=${title.toLowerCase()}&value=${e.target.name}`
+        let filterQuery;
+        if (title==="Country") {
+                filterQuery=`/filter/?key=address.${title.toLowerCase()}&value=${e.target.name}`
+        }
+        else {
+                filterQuery=`/filter/?key=${title.toLowerCase()}&value=${e.target.name}`
+        }
         const sortQuery=`?sortBy=${title}&order=${e.target.name}`
         if (onlyIcon) dispatch(getUsers(sortQuery))
         else dispatch(getUsers(filterQuery))

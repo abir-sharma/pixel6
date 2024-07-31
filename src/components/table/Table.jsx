@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 const data = ["asc", "desc"]
 const Table = () => {
     const { users } = useSelector(state => state.store.user)  
-    console.log(users,"abir")
     return (
         <>
             <div className="container border">
@@ -44,7 +43,7 @@ const Table = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {users && users.map(item => <TableRow item={item} />)}
+                        {users && Array.isArray(users) && users.map(item => <TableRow item={item} />)}
                     </tbody>
                 </table>
             </div>

@@ -4,12 +4,10 @@ import { useDispatch } from 'react-redux'
 import { getUsers } from '../../actions/userActions'
 
 const Paginations = () => {
-  const [pageno, setPageno] = useState(10)
   const dispatch = useDispatch()
   function handlePageClick(params) {
-    setPageno(pageno + 10)
-    const query = `?limit=10&skip=${pageno}`
-    console.log(query)
+    const pageIndex=params.selected
+    const query = `?limit=10&skip=${pageIndex*10}`
     dispatch(getUsers(query))
   }
   const pageCount = Math.ceil(208 / 10)

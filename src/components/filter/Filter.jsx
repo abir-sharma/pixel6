@@ -2,7 +2,7 @@ import React from 'react'
 import Dropdown from '../dropdown/Dropdown'
 
 
-const data=["United states","India"]
+const data=["United States","India"]
 const Filter = () => {
     return (
         <>

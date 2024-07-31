@@ -5,6 +5,7 @@ import Filter from '../../components/filter/Filter'
 import Paginations from '../../components/pagination/Paginations'
 import { useDispatch } from 'react-redux'
 import { getUsers } from '../../actions/userActions'
+import Search from '../../components/search/Search'
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
         <>
             <Header />
             <Filter />
+            <Search />
             <Table />
             <Paginations />
         </>
